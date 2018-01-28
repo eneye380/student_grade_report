@@ -12,5 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard.index');
 });
+
+
+Route::resource('report', 'ReportController');
+
+Route::resource('student', 'StudentController');
+
+Route::resource('subject', 'SubjectController');
+
+Route::get('student/manage/{id}', 'StudentGradesController@student');
+
+Route::get('student/report/{id}', 'StudentGradesController@report');
+
+Route::post('student/remove', 'StudentGradesController@remove');
